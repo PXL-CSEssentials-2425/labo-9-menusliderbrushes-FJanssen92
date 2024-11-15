@@ -6,18 +6,37 @@
         xmlns:local="clr-namespace:Labo_9___MenuSliderBrushes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Bestand">
+                <MenuItem Header="Afsluiten" Name="closeMenu" Click="closeMenu_Click"/>
+            </MenuItem>
+            
+            <MenuItem Header="Getallen">
+                <MenuItem Header="Eerste Getal" Name="firstNumberMenu" Click="firstNumberMenu_Click"/>
+                <MenuItem Header="Tweede Getal" Name="secondNumberMenu" Click="secondNumberMenu_Click"/>
+            </MenuItem>
+
+
+        </Menu>
+        
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="Eerste getal:"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Name="numberOneTextBox" HorizontalAlignment="Left" Width="100"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Tweede getal:"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="numberTwoTextBox" HorizontalAlignment="Left" Width="100"/>
-    </Grid>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="numberOneTextBox" HorizontalAlignment="Left" Width="100" TextChanged="TextBox_TextChanged"/>
+            <Slider x:Name="firstNumberSlider" Grid.Column="2" Grid.Row="0" Width="100" HorizontalAlignment="Left" Maximum="5" Minimum="1" SmallChange="1" TickPlacement="BottomRight" ValueChanged="firstNumberSlider_ValueChanged"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="Tweede getal:"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="numberTwoTextBox" HorizontalAlignment="Left" Width="100" TextChanged="TextBox_TextChanged"/>
+            <Slider x:Name="secondNumberSlider" Grid.Column="2" Grid.Row="1" Width="100" HorizontalAlignment="left" Minimum="1" Maximum="5" SmallChange="1" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" ValueChanged="secondNumberSlider_ValueChanged"/>
+        </Grid>
+    </DockPanel>
+
 </Window>
